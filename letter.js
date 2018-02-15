@@ -10,11 +10,11 @@
 //   * A function that takes a character as an argument and checks it against the underlying character, updating the stored boolean value to true if it was guessed correctly
 
 function Letter(character) {
-	this.character = character
+	this.character = character;
 
 	this.guessed = false;
 
-	this.toString = function() {
+	this.replace = function() {
 		if (this.guessed) {
 			return (this.character);
 		} else {
@@ -22,17 +22,17 @@ function Letter(character) {
 		}
 	}
 
-	this.check = function(char) {
-		if (char === this.character) {
+	this.check = function(guess) {
+		if (guess === this.character) {
 			this.guessed = true;
-			// console.log("yup");
+			console.log("yup");
 		} else {
-			// console.log("nope");
+			console.log("nope");
 		}
 	}
 }
 
-
+//Tests
 // var letter1 = new Letter("s");
 
 // letter1.check("z");
