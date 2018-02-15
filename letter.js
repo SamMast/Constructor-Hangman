@@ -9,8 +9,37 @@
 
 //   * A function that takes a character as an argument and checks it against the underlying character, updating the stored boolean value to true if it was guessed correctly
 
-function Letter() {
+function Letter(character) {
+	this.character = character
 
+	this.guessed = false;
+
+	this.toString = function() {
+		if (this.guessed) {
+			return (this.character);
+		} else {
+			return ("_");
+		}
+	}
+
+	this.check = function(char) {
+		if (char === this.character) {
+			this.guessed = true;
+			// console.log("yup");
+		} else {
+			// console.log("nope");
+		}
+	}
 }
 
-var x = new Letter();
+
+// var letter1 = new Letter("s");
+
+// letter1.check("z");
+// letter1.replace();
+
+// letter1.check("r");
+// letter1.replace();
+
+// letter1.check("s");
+// letter1.replace();
