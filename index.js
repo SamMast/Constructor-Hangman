@@ -35,7 +35,7 @@ function createWord() {
 	guessesSoFar = [];
 }
 
-function gameStart() {
+function gameRun() {
 
 	if (newWord.guesses > 0) {
 
@@ -71,14 +71,14 @@ function gameStart() {
 
 							if (data.newGame) {
 								createWord();
-								gameStart();
+								gameRun();
 							}
 
 						});
 
 
 				} else {
-					gameStart();
+					gameRun();
 				}
 
 			});
@@ -96,7 +96,7 @@ function gameStart() {
 
 				if (data.newGame) {
 					createWord();
-					gameStart();
+					gameRun();
 				}
 
 			});
@@ -108,7 +108,7 @@ function gameStart() {
 
 createWord();
 
-gameStart();
+gameRun();
 
 
 
