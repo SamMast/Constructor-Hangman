@@ -35,8 +35,6 @@ function createWord() {
 	guessesSoFar = [];
 }
 
-createWord();
-
 function gameStart() {
 
 	if (newWord.guesses > 0) {
@@ -108,4 +106,9 @@ function gameStart() {
 
 }
 
+createWord();
+
 gameStart();
+
+
+
