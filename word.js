@@ -7,35 +7,68 @@
 
 //   * A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in `Letter.js`)
 
-const letter = require('./letter.js');
-var display = [];
+const Letter = require('./letter.js');
+
 
 function Word(word) {
-	this.letters = word.split("");
 
-	this.display = function() {
+	this.lettersArray = word.split("");
+	this.display = [];
+	this.guesses = 10;
+
+	this.wordDisplay = function() {
 		
-		for (var i = 0; i < this.letters.length; i++) {
-			this.letters[i].replace();
-			display += this.letters[i];
+		for (var i = 0; i < this.lettersArray.length; i++) {
+			
+			var spot = new Letter(this.lettersArray[i])
+			this.display.push(spot.replace());
 		}
+	
+		console.log(`\n${this.display.join(" ")}\n`);
 
-		console.log(display);
 	};
 
 	this.guess = function(guessedLetter) {
+		
+		var count = 0;
 
-		for (var i = 0; i < this.letters.length; i++) {
-			this.letters[i].check(guessedLetter);
+		for (var i = 0; i < this.lettersArray.length; i++) {
+
+			var spot = new Letter(this.lettersArray[i])
+			
+			spot.check(guessedLetter);
+			
+			if (spot.guessed) {
+				this.display.splice(i, 1, spot.character);
+				count++;
+			} else {
+			}
+
+		}
+
+		console.log(`\n${this.display.join(" ")}`);
+
+		if (count > 0) {
+			console.log(`\nCORRECT!\n`);
+
+		} else {
+			this.guesses--;
+			console.log(`\nINCORRECT!\n${this.guesses} guesses left\n`);		
 		}
 
 	}
 }
 
-var word1 = new Word("test");
-word1.display();
-word1.guess("a");
-// word1.display();
-// console.log(word1.letters);
+// var word1 = new Word("test");
+// console.log(word1.display)
+// word1.wordDisplay();
+// word1.guess("a");
+// word1.guess("t");
+// word1.guess("e");
+// word1.guess("s");
+
+// console.log(word1.display)
+// console.log(word1.lettersArray)
 
 
+module.exports = Word;

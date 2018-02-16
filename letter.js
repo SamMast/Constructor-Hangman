@@ -17,7 +17,7 @@ function Letter(character) {
 	this.replace = function() {
 		if (this.guessed) {
 			return (this.character);
-		} else {
+		} else if (!this.guessed) {
 			return ("_");
 		}
 	}
@@ -25,12 +25,15 @@ function Letter(character) {
 	this.check = function(guess) {
 		if (guess === this.character) {
 			this.guessed = true;
-			console.log("yup");
+			// console.log("yup");
 		} else {
-			console.log("nope");
+			// console.log("nope");
 		}
 	}
 }
+
+
+module.exports = Letter;
 
 //Tests
 // var letter1 = new Letter("s");
