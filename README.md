@@ -2,7 +2,7 @@
 
 Command Line Hangman game (using node.js)
 
-##To play, 
+## To play, 
 
 * Clone repository, use an "npm install" in your terminale to install all necessary packages for game from package-json file.
 
