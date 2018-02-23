@@ -20,3 +20,19 @@ function Letter(character) {
 
 
 module.exports = Letter;
+
+// Tests
+
+var letter1 = new Letter("s");
+
+letter1.check("z");
+letter1.replace();
+console.log(letter1);
+
+letter1.check("r");
+letter1.replace();
+console.log(letter1);
+
+letter1.check("s");
+letter1.replace();
+console.log(letter1);
